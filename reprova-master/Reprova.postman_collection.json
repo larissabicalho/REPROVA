@@ -1,0 +1,213 @@
+{
+	"info": {
+		"_postman_id": "c738459c-81e9-4bcf-b34b-eebfbc94d221",
+		"name": "Reprova",
+		"description": "Coleção destinada a testar os endpoints do trabalho da disciplina de Reuso de Software - Reprova",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "List public questions",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{server}}/api/questions",
+					"host": [
+						"{{server}}"
+					],
+					"path": [
+						"api",
+						"questions"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "List all questions",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{server}}/api/questions?token={{token}}",
+					"host": [
+						"{{server}}"
+					],
+					"path": [
+						"api",
+						"questions"
+					],
+					"query": [
+						{
+							"key": "token",
+							"value": "{{token}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create public question",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"theme\": \"Software Engineering\",\n    \"description\": \"Sample description\",\n    \"statement\": \"A sample software engineering question\",\n    \"pvt\": false\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{server}}/api/questions?token={{token}}",
+					"host": [
+						"{{server}}"
+					],
+					"path": [
+						"api",
+						"questions"
+					],
+					"query": [
+						{
+							"key": "token",
+							"value": "{{token}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create private question",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"theme\": \"Software Engineering\",\n    \"description\": \"Sample private description\",\n    \"statement\": \"A sample private software engineering question\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{server}}/api/questions?token={{token}}",
+					"host": [
+						"{{server}}"
+					],
+					"path": [
+						"api",
+						"questions"
+					],
+					"query": [
+						{
+							"key": "token",
+							"value": "{{token}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create answer",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"questionId\": {{questionId}},\n    \"description\": \"A third description!\",\n    \"attachment\": \"A base64 file\",\n    \"pvt\": false\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{server}}/api/questions/{{questionId}}/answers?token={{token}}",
+					"host": [
+						"{{server}}"
+					],
+					"path": [
+						"api",
+						"questions",
+						"{{questionId}}",
+						"answers"
+					],
+					"query": [
+						{
+							"key": "token",
+							"value": "{{token}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get answers for question",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{server}}/api/questions/{{questionId}}/answers",
+					"host": [
+						"{{server}}"
+					],
+					"path": [
+						"api",
+						"questions",
+						"{{questionId}}",
+						"answers"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "b7c57c41-54f0-4ac2-bf58-322a530287d8",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "42843820-da8f-43e2-b097-ab8c9ffcd23a",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "e2786c16-82c8-4385-8edf-9ddb3248bec1",
+			"key": "token",
+			"value": "d2fad245dd1d8a4f863e3f1c32bdada723361e6f63cfddf56663e516e47347bb"
+		},
+		{
+			"id": "df28eaa9-49f1-45d0-9035-878564b493cb",
+			"key": "server",
+			"value": "localhost:8888"
+		},
+		{
+			"id": "839b2b26-8b78-44fa-9c4b-bb10fc1e393f",
+			"key": "questionId",
+			"value": "5"
+		}
+	],
+	"protocolProfileBehavior": {}
+}
